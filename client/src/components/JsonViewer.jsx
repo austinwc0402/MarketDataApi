@@ -19,7 +19,6 @@ const styles = {
   },
   pre: {
     margin: 0,
-    fontSize: "14px",
-    fontFamily: "monospace",
-  },
+    fontSize: "14px"
+  }
 };

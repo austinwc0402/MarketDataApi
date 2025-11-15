@@ -18,8 +18,15 @@ namespace MarketDataApi.Controllers
         [HttpGet]
         public IActionResult GetDailySummaries([FromQuery] string symbol)
         {
-            List<DailySummary> summaries = _alphaVantageService.GetDailySummaries(symbol);
-            return Ok(summaries);
+            try
+            {
+                List<DailySummary> summaries = _alphaVantageService.GetDailySummaries(symbol);
+                return Ok(summaries);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { error = ex.Message });
+            }
         }
     }
 }
