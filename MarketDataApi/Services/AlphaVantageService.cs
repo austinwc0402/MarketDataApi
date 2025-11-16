@@ -16,7 +16,7 @@ namespace MarketDataApi.Services
         public List<DailySummary> GetDailySummaries(string symbol)
         {
             DateTime currentDateTime = DateTime.Now;
-            string month = currentDateTime.ToString("yyyy-MM");
+            string month = currentDateTime.AddMonths(-1).ToString("yyyy-MM");
             string QUERY_URL = $"https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={symbol}&interval=15min&month={month}&outputsize=full&apikey={_apiKey}";
             Uri uri = new Uri(QUERY_URL);
 
